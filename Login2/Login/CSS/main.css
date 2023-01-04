@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f7e5e5;
+}
+
+.Loginbox {
+    border-radius: 50px;
+    width: 1132px;
+    height: 740px;
+    position: absolute;
+    top: 8px;
+    background-color: white;
+    left: 202px;
+    box-shadow: -2px 2px 13px 4px rgb(0 0 0 / 30%);
+    overflow: hidden;
+}
+
+.loginform {
+    position: absolute;
+    width: 50%;
+    height: 750px;
+
+}
+
+.back {
+    width: 70%;
+    height: 825px;
+    background-image: url(../../1.jpg);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+    position: absolute;
+    left: 50%;
+    border-radius: 50%;
+    left: 568px;
+    top: -25px;
+    
+}
+
+.loginform h1 {
+    color: #b11515;
+    text-align: center;
+    margin: 60px 12px 0px 0px;
+    font-size: 50px;
+}
+
+.loginform h3 {
+    color: black;
+    text-align: center;
+    margin: 55px 0px 0px 0px ;
+    font-weight: 100;
+}
+
+.socialicon a {
+    color: #ac3737;
+    margin: 33px -142px 0px 199px;
+    border: 3px solid #ac3737;
+    border-radius: 50px;
+    padding: 17px;
+    transition: 1s all;
+}
+
+
+.socialicon a:hover {
+    color: white;
+    background-color: grey;
+}
+
+.loginform input {
+    color: red;
+    background-color: #efefef;
+    outline: none;
+    border: none;
+    margin: 29px 60px -9px 155px;
+    padding: 18px 85px 13px 19px;
+}
+
+
+.loginform h2 {
+    color: #a22542;
+    text-align: center;
+    margin: 32px 0px 0px 2px;
+    font-size: medium;
+}
+
+.loginform button {
+    color: #deb3b4;
+    background-color: #a52a2a;
+    margin: 55px 5px 0px 214px;
+    padding: 17px 42px 17px 43px;
+    border-radius: 32px;
+    /* outline: none; */
+    border: none;
+    transition: 1s all;
+    font-size: initial;
+}
+
+
+.loginform button:hover {
+    color: aqua;
+    background-color: black;
+    
+}
