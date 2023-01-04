@@ -54,7 +54,7 @@ function editinput(id) {
 
     localdata.map((d, i) => {
         if (d.id == id) {
-            let pi = document.getElementById("id").value = d.id;
+            let pi = document.getElementById("id").disabled = true;
             let pn = document.getElementById("productName").value = d.Name;
             let pp = document.getElementById("productPrice").value = d.Price;
             let pq = document.getElementById("productQuantity").value = d.PriceQuantity;
@@ -125,3 +125,4 @@ function submit3() {
     })
     localStorage.setItem("products", JSON.stringify(localdata));
 }
+ 
