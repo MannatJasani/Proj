@@ -54,14 +54,23 @@ function del(id) {
 
 function editinput(id) {
     let localdata = JSON.parse(localStorage.getItem("products"));
+    
+
 
     localdata.map((d) => {
-        if (d.id == id) {
-        }
 
+        let pi = document.getElementById("id").value = d.id;
+        let ds = document.getElementById("id").disabled = true;
+        let pn = document.getElementById("productName").value = d.Name;
+        let pp = document.getElementById("productPrice").value = d.Price;
+        let pq = document.getElementById("productQuantity").value = d.PriceQuantity;
+        let ps = document.getElementById("Pic").value = d.Picture;     
+            
+                
     })
     flag = 'true';
 }
+
 
 
 function submit1() {
@@ -126,25 +135,25 @@ function add(l) {
     let obj;
     localdata.map((d, index) => {
         if (l == d.id) {
-             obj = {
+            obj = {
                 id: d.id,
                 Name: d.Name,
                 Price: d.Price,
                 PriceQuantity: d.PriceQuantity,
                 Picture: d.Picture
-            } 
+            }
 
-            
+
 
             localStorage.setItem("cart", JSON.stringify(obj))
 
 
-            
+
             localdata = obj;
         }
     })
 
-    
+
 
 
     console.log(obj);
@@ -157,28 +166,26 @@ function add(l) {
     row = row + "<th>" + "Name" + "</th>";
     row = row + "<th>" + "Price" + "</th>";
     row = row + "<th>" + "Quantity" + "</th>";
-    
+
     row += "</tr>";
 
-        row += "<tr>";
-        row += "<td>" + obj.id;
-        row += "</td>";
-        row += "<td><img src= 'Images/" + obj.Picture + "' width='170px' height= '170px' >";
-        row += "</td>";
-        row += "<td>" + obj.Name;
-        row += "</td>";
-        row += "<td>" + obj.Price;
-        row += "</td>";
-        row += "<td>" + obj.PriceQuantity;
-        row += "</td>";
-        row += "</tr>";
+    row += "<tr>";
+    row += "<td>" + obj.id;
+    row += "</td>";
+    row += "<td><img src= 'Images/" + obj.Picture + "' width='170px' height= '170px' >";
+    row += "</td>";
+    row += "<td>" + obj.Name;
+    row += "</td>";
+    row += "<td>" + obj.Price;
+    row += "</td>";
+    row += "<td>" + obj.PriceQuantity;
+    row += "</td>";
+    row += "</tr>";
 
 
-
-
-
-    
     row += "<table>";
+
+
     document.getElementById("cart").innerHTML = row;
-    
+
 }
