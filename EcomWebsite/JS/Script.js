@@ -13,10 +13,11 @@ function dataLoad() {
     row = row + "<th>" + "Price" + "</th>";
     row = row + "<th>" + "Quantity" + "</th>";
     row = row + "<th>" + "Buttons" + "</th>";
+    row = row + "<th>" + "Add_To_Cart" + "</th>";
     row += "</tr>";
 
 
-    localdata.map((d, i) => {
+    localdata.map((d) => {
         row += "<tr>";
         row += "<td>" + d.id;
         row += "</td>";
@@ -28,8 +29,9 @@ function dataLoad() {
         row += "</td>";
         row += "<td>" + d.PriceQuantity;
         row += "</td>";
-        row += "<td><button onclick = 'editinput( " + d.id + " )' >Edit</button> <button onclick = 'del( " + d.id + " )'>Delete</button></td>"
+        row += "<td><button onclick = 'editinput( " + d.id + " )' >Edit</button> <button onclick = 'del( " + d.id + " )'>Delete</button><td> <button onclick = 'add(" + d.id + ") '> Add To Cart </button></td>"
         row += "</tr>";
+
 
     })
     row += "<table>";
@@ -37,6 +39,7 @@ function dataLoad() {
 }
 
 function del(id) {
+
     let localdata = JSON.parse(localStorage.getItem("products"));
 
     localdata.map((d, i) => {
@@ -52,23 +55,14 @@ function del(id) {
 function editinput(id) {
     let localdata = JSON.parse(localStorage.getItem("products"));
 
-    localdata.map((d, i) => {
+    localdata.map((d) => {
         if (d.id == id) {
-            let pi = document.getElementById("id").disabled = true;
-            let pn = document.getElementById("productName").value = d.Name;
-            let pp = document.getElementById("productPrice").value = d.Price;
-            let pq = document.getElementById("productQuantity").value = d.PriceQuantity;
-            let ps = document.getElementById("Pic").value = d.Picture;
         }
 
     })
     flag = 'true';
 }
 
-
-function cheak() {
-
-}
 
 function submit1() {
     if (flag === 'true') {
@@ -125,4 +119,66 @@ function submit3() {
     })
     localStorage.setItem("products", JSON.stringify(localdata));
 }
- 
+
+
+function add(l) {
+    let localdata = JSON.parse(localStorage.getItem("products"))
+    let obj;
+    localdata.map((d, index) => {
+        if (l == d.id) {
+             obj = {
+                id: d.id,
+                Name: d.Name,
+                Price: d.Price,
+                PriceQuantity: d.PriceQuantity,
+                Picture: d.Picture
+            } 
+
+            
+
+            localStorage.setItem("cart", JSON.stringify(obj))
+
+
+            
+            localdata = obj;
+        }
+    })
+
+    
+
+
+    console.log(obj);
+
+    let row = "";
+    row += "<table border= 2px solid black>";
+    row += "<tr>";
+    row = row + "<th>" + "Id" + "</th>";
+    row = row + "<th>" + " Image" + "</th>";
+    row = row + "<th>" + "Name" + "</th>";
+    row = row + "<th>" + "Price" + "</th>";
+    row = row + "<th>" + "Quantity" + "</th>";
+    
+    row += "</tr>";
+
+        row += "<tr>";
+        row += "<td>" + obj.id;
+        row += "</td>";
+        row += "<td><img src= 'Images/" + obj.Picture + "' width='170px' height= '170px' >";
+        row += "</td>";
+        row += "<td>" + obj.Name;
+        row += "</td>";
+        row += "<td>" + obj.Price;
+        row += "</td>";
+        row += "<td>" + obj.PriceQuantity;
+        row += "</td>";
+        row += "</tr>";
+
+
+
+
+
+    
+    row += "<table>";
+    document.getElementById("cart").innerHTML = row;
+    
+}
